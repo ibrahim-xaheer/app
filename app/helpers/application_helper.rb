@@ -3,9 +3,9 @@ module ApplicationHelper
   def title
   	base_title = "Facebook"
   	if @title.nil?
-  		base_title
+  		return base_title
   	else
-  		"#{base_title} | #{@title}"
+  		return "#{base_title} | #{@title}"
   	end
   end
 end
