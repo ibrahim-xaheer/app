@@ -2,15 +2,33 @@
 <html>
 <head>
 	<title><%= title%></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %> <!--Handles the Cross Site request Forgery -->
-  <%= stylesheet_link_tag '/stylesheets/blueprint/screen', :media => 'screen' %>
-  <%= stylesheet_link_tag '/stylesheets/blueprint/screen', :media => 'print' %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>  
+  
+  
+ <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <%= stylesheet_link_tag 'asstes/stylesheets/blueprint/ie'%>
+    <![endif]-->
+
 </head>
 <body>
-
-<%= yield %>
-
+	<header>
+		<%= image_tag("Me.jpg", :alt => "Logo") %>
+		<nav class="round">
+			<ul>
+				<li><%= link_to "Home", "LINK ADDRESS" %></li>
+				<li><%= link_to "About", "#" %></li>
+				<li><%= link_to "Contact", "#" %></li>
+				<li><%= link_to "SignIn", "#" %></li>
+			</ul>
+		</nav>
+	</header>
+	<section class="round">
+		<%= yield %>
+	</section>
 </body>
 </html>
