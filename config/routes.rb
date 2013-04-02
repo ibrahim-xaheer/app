@@ -1,5 +1,7 @@
 App::Application.routes.draw do
 
+   root :to => 'pages#home'# first page that open
+
   #match 'URL', to: 'controller#action'
  
   match 'pages/home', to: 'pages#home'
