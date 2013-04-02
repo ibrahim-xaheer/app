@@ -1,10 +1,13 @@
 App::Application.routes.draw do
+  
+  # match '/the path that is shown', to:'controller#view'
+
   root to: 'pages#home'
 
-  match 'pages/help' ,    to: 'pages#help'
+  match '/help' ,    to: 'pages#help'
   match '/about' ,   to: 'pages#about'
   match '/contact' , to: 'pages#contact'  
-
+  match '/signup',   to: 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
