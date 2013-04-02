@@ -1,14 +1,10 @@
 App::Application.routes.draw do
+  root to: 'pages#home'
 
-   root :to => 'pages#home'# first page that open
+  match 'pages/help' ,    to: 'pages#help'
+  match '/about' ,   to: 'pages#about'
+  match '/contact' , to: 'pages#contact'  
 
-  #match 'URL', to: 'controller#action'
- 
-  match 'pages/home', to: 'pages#home'
-
-  match 'pages/contact', to: 'pages#contact'
-
-  match 'pages/about', to: 'pages#about'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

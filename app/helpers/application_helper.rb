@@ -8,4 +8,8 @@ module ApplicationHelper
   		return "#{base_title} | #{@title}"
   	end
   end
+
+  def logo
+  	image_tag "fblogosmall.png", :alt => "Logo", :class =>"round"
+  end
 end
