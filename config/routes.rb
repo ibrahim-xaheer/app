@@ -2,6 +2,8 @@ App::Application.routes.draw do
   
   # match '/the path that is shown', to:'controller#view'
 
+  resources :users
+
   root to: 'pages#home'
 
   match '/help' ,    to: 'pages#help'
