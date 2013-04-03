@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(:version => 20130403182349) do
     t.string   "fName"
     t.string   "lName"
     t.string   "email"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "encrypted_password"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "password_digest"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
