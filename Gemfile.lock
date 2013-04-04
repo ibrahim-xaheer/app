@@ -120,9 +120,6 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
-    uglifier (1.2.3)
-      execjs (>= 0.3.0)
-      multi_json (>= 1.0.2)
 
 PLATFORMS
   x86-mingw32
@@ -139,4 +136,3 @@ DEPENDENCIES
   rspec-rails (= 2.11.0)
   sass-rails (= 3.2.5)
   sqlite3 (= 1.3.5)
-  uglifier (= 1.2.3)
