@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
-gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby','3.0.1'
 
 group :development do
@@ -16,6 +15,7 @@ group :assets do
   gem 'coffee-rails', '3.2.2'
   gem 'jquery-rails', '2.0.2'
   gem 'uglifier', '1.2.3'
+  gem 'bootstrap-sass', '2.1'
 end
 
 group :development, :test do
@@ -29,8 +29,8 @@ group :test do
 	gem 'factory_girl_rails', '4.1.0'
 end
 
+
 group :production do
-  gem 'rails', '3.2.12'
-  gem 'sqlite3', '1.3.5'
+  gem 'pg', '0.12.2'
   gem 'bcrypt-ruby','3.0.1'
 end
