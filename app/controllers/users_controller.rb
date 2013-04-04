@@ -15,7 +15,8 @@ class UsersController < ApplicationController
 
   	if @user.save
   		#Handle a successfull sign up
-      #redirect_to user_path(@user) # takes u to the user home page
+      #redirect_to user_path(@user) # takes u to the user home page\
+      flash[:success] = "Welcome to Facebook"
       redirect_to @user
   	else
       @title = "Sign Up | ERROR "

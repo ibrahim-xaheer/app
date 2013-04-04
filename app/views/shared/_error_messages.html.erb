@@ -1,9 +1,8 @@
 <%if @user.errors.any?%>
-
 <div id="error_explaination">
-	<h2>Unable to save user due to because :</h2>
-	<p>
-		There were problems with the following fields
+	<div class="alert alert-error">
+		The form contains <%= pluralize(@user.errors.count, "error") %>.
+	</div>
 		<ul>
 			<% @user.errors.full_messages.each do |message| %>
 			<li>
@@ -11,6 +10,5 @@
 			</li>
 			<% end %>
 		</ul>
-	</p>
 </div>
 <% end %>
