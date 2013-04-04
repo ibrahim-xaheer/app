@@ -6,7 +6,6 @@ App::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   root to: 'pages#home'
 
-  match '.signup',   to: 'users#new'
   match '/help' ,    to: 'pages#help'
   match '/about' ,   to: 'pages#about'
   match '/contact' , to: 'pages#contact'  
