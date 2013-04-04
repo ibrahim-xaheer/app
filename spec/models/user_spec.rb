@@ -2,13 +2,13 @@
 #
 # Table name: users
 #
-#  id                 :integer          not null, primary key
-#  fName              :string(255)
-#  lName              :string(255)
-#  email              :string(255)
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  encrypted_password :string(255)
+#  id              :integer          not null, primary key
+#  fName           :string(255)
+#  lName           :string(255)
+#  email           :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string(255)
 #
 
 require 'spec_helper'
