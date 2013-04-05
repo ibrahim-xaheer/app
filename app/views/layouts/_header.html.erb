@@ -11,14 +11,8 @@
           <li class="grayText"><%= link_to "Help", about_path %></li>
           <% if signed_in? %>          
           <li><%= link_to "Users", '#' %></li>
-
-            <li>Account</li>
-            <li><%= link_to "Profile", current_user %></li>
-            <li><%= link_to "Settings", '#' %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
-            
-            </ul>
+          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+        </ul>
             
           <% else %>
             <li><%= link_to "Sign in", signin_path %></li>
