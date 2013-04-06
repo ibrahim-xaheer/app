@@ -8,6 +8,10 @@
 {
 	background:#fff;
 }
+body
+{
+	background:#edf0f5;
+}
 .whiteText
 {
 	color:#fff;
@@ -30,6 +34,28 @@
 {
 	clear:both;
 }
-.squareBox
+.smallText
 {
+	font-size:11px;
+	font-family:'lucida grande',tahoma,verdana,arial,sans-serif;
+	line-height:1.28;
+}
+.input-medium
+{
+	width:142px;
+}
+.noMargin
+{
+	margin-top:0px;
+	margin-bottom:3px;
+}
+input[type="checkbox"] 
+{
+	margin:0 0 3px;
+}
+.navbar .btn, .navbar .btn-group
+{
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:10px;
 }

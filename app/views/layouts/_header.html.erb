@@ -1,24 +1,45 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner darkBlueBG">
     <div class="container">
+<% if signed_in? %>  
       <div class="pull-left">
-        <%= link_to logo, root_path %>
+        <%= link_to logoS, root_path %>
       </div>
       <nav>
-        <ul class="nav pull-right grayText">
-          <% if signed_in? %>          
-          <li class="grayText"><%= link_to "Home", user_path(current_user) %></li>
-          <li><%= link_to "Users", users_path %></li>
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+        <ul class="nav pull-right grayText">                  
+          <li class="grayText">
+           <%= link_to "#{current_user.fName} #{current_user.lName}", user_path(current_user) %>
+          </li>
+          <li><%= link_to "All Users", users_path %></li>
+          <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
           <li><%= link_to "Sign out", signout_path, method: "delete" %></li>            
-          <% else %>
-          <li class="grayText"><%= link_to "Home", root_path %></li>
-          <li class="grayText"><%= link_to "Help", about_path %></li>
-          <li><%= link_to "Sign in", signin_path %></li>        
-          <% end %>
-        </ul>
-        
+        </ul>        
       </nav>
+<% else %>
+          <div class="pull-left">
+            <%= link_to logoL, root_path %>            
+          </div>
+        <div class="pull-right">
+          <table> 
+            <%= form_for(:session, url: sessions_path) do |f| %>
+            <tr>
+              <td class="whiteText"><%= f.label :email,"Email or Phone", class: "smallText" %></td>
+              <td class="whiteText"><%= f.label :password,"Password", class: "smallText" %></td>
+            </tr>
+            <tr>
+              <td><%= f.email_field :email, placeholder: "Email", required: "required", class: "input-medium" %>&nbsp;</td>
+              <td><%= f.password_field :password, placeholder: "Password", required: "required", class: "input-medium" %></td>
+              <td><%= f.submit "Log In", class: "btn btn-small btn-primary noMargin" %></td>
+            </tr>
+            <tr>
+              <td class="grayText smallText"><input type="checkbox" class="noMargin"/>&nbsp;Keep me logged in</td>
+              <td class="grayText smallText">Forgot Password?</td>
+            </tr>
+            <% end %>
+            </table>
+        </div>
+<% end %>
+
     </div>
   </div>
 </header>

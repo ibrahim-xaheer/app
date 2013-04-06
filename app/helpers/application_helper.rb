@@ -9,7 +9,11 @@ module ApplicationHelper
   	end
   end
 
-  def logo
-  	image_tag "fblogosmall.png", :alt => "Logo", :class =>"round"
+  def logoL
+  	image_tag "fblogo.png", :alt => "Logo", :class =>"round"
+  end
+
+  def logoS
+    image_tag "fblogosmall.png", :alt => "Logo", :class =>"round"
   end
 end

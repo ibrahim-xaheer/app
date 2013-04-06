@@ -1,6 +1,25 @@
-<h1>HOME</h1>
-<p>This is the Home Page for the project that replicates <a href="http://www.facebook.com">Facebook</a>and inplement it using the RoR (Ruby on Rails) Framework</p>
-
-<%= link_to "SignUp", signup_path %>
 
 
+<div class="pull-right span5">
+<h1>Sign Up</h1>
+It's Free and always will be.
+<%= form_for(@user) do |f| %>
+<%= render 'shared/error_messages' %>
+
+	<%= f.text_field :fName, placeholder: "First Name", class: "input-small" %>
+&nbsp;&nbsp;
+	<%= f.text_field :lName, placeholder: "Last Name", class: "input-small"%>
+
+	<%= f.email_field :email, placeholder: "Email", class: "input" %>
+
+	<%= f.password_field :password , placeholder: "New Password", class: "input" %>
+
+	<%= f.password_field :password_confirmation, placeholder: "Re-enter Password" %>
+
+	<br>
+	<%= f.submit "SignUp", class: "btn btn-large btn-primary" %>
+
+<% end %>
+
+<%= debug(params) if Rails.env.development? %>
+</div>

@@ -4,6 +4,7 @@ App::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  
   root to: 'pages#home'
 
   match '/help' ,    to: 'pages#help'
