@@ -4,10 +4,14 @@
 <% if signed_in? %>  
       <div class="pull-left">
         <%= link_to logoS, root_path %>
+        &nbsp;
+        <input type="text" class="search-margin input-medium">
+        <button type="submit" class="btn btn-min btn-info">Search</button>
+
       </div>
       <nav>
-        <ul class="nav pull-right grayText">                  
-          <li class="grayText">
+        <ul class="nav pull-right grayText username">                  
+          <li>
            <%= link_to "#{current_user.fName} #{current_user.lName}", user_path(current_user) %>
           </li>
           <li><%= link_to "All Users", users_path %></li>
@@ -29,7 +33,7 @@
             <tr>
               <td><%= f.email_field :email, placeholder: "Email", required: "required", class: "input-medium" %>&nbsp;</td>
               <td><%= f.password_field :password, placeholder: "Password", required: "required", class: "input-medium" %></td>
-              <td><%= f.submit "Log In", class: "btn btn-small btn-primary noMargin" %></td>
+              <td><%= f.submit "Log In", class: "btn btn-small btn-primary" %></td>
             </tr>
             <tr>
               <td class="grayText smallText"><input type="checkbox" class="noMargin"/>&nbsp;Keep me logged in</td>

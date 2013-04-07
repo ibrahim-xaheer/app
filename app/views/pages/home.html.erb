@@ -1,8 +1,18 @@
 
 
+<div class="pull-left span5">
+<h3>Connect with friends and the world around you on Facebook.</b3>
+<br><br>
+<img src="https://fbcdn-dragon-a.akamaihd.net/cfs-ak-prn1/676405/66/276449379149296_1535348985.png"/>
+<br><br>
+<img src="https://fbcdn-dragon-a.akamaihd.net/cfs-ak-prn1/676655/83/276449379149296_1538611903.png"/>
+<br><br>
+<img src="https://fbcdn-dragon-a.akamaihd.net/cfs-ak-ash3/676550/669/276449379149296_367648155.png"/>
+</div>
+
 <div class="pull-right span5">
 <h1>Sign Up</h1>
-It's Free and always will be.
+It's Free and always will be. <br><br>
 <%= form_for(@user) do |f| %>
 <%= render 'shared/error_messages' %>
 
@@ -15,9 +25,8 @@ It's Free and always will be.
 	<%= f.password_field :password , placeholder: "New Password", class: "input" %>
 
 	<%= f.password_field :password_confirmation, placeholder: "Re-enter Password" %>
-
-	<br>
-	<%= f.submit "SignUp", class: "btn btn-large btn-primary" %>
+<br>
+	<%= f.submit "SignUp", class: "btn btn-large btn-success" %>
 
 <% end %>
 
