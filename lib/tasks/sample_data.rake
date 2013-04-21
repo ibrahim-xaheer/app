@@ -4,15 +4,15 @@ namespace :db do
     
     admin = User.create!(fName: "Admin",
                          lName: "User",
-                         email: "admin@facebook.com",
-                         password: "foobar",
-                         password_confirmation: "foobar")
+                         email: "admin@frakebook.com",
+                         password: "administrator",
+                         password_confirmation: "administrator")
     admin.toggle!(:admin)
 
     99.times do |n|
-      fName  = Faker::Name.name
-      lName  = "."
-      email = "example#{n+2}@railstutorial.org"
+      fName  = Faker::Name.first_name
+      lName  = Faker::Name.last_name
+      email = "#{fName}#{lName}#{n+2}@lhr.nu.edu.pk"
       password  = "password"
       User.create!(fName: fName,
                    lName: lName,
