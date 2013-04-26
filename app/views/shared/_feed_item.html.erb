@@ -1,0 +1,11 @@
+<li id="<%= feed_item.id %>">
+  <%= link_to image_tag("picsmall.png", alt: "Rails", class: "miniDP") %> 
+ 
+	<%= link_to "#{feed_item.user.fName} #{feed_item.user.lName}", user_path(feed_item.user) %>
+  
+  <span class="content"><%= feed_item.content %></span>
+  <span class="timestamp">
+    <%= time_ago_in_words(feed_item.created_at) %> ago.
+  </span>
+</li>
+

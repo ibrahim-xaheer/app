@@ -3,7 +3,7 @@
     <div class="container">
 <% if signed_in? %>  
       <div class="pull-left">
-        <%= link_to logoS, user_path(current_user) %>
+        <%= link_to logoS, feed_path %>
         &nbsp;
         <input type="text-area" class="search-margin input-medium">
         <button type="submit" class="btn btn-min btn-info">Search</button>

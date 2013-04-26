@@ -18,5 +18,12 @@ class PagesController < ApplicationController
   def about
   	@title = "About"
   end
+
+  def feed
+    if signed_in?
+      @posts = current_user.posts.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
+  end
   
 end

@@ -1,0 +1,19 @@
+
+
+
+<% if signed_in? %>
+<% @user=current_user %>
+	<div class="pull-left span3">
+	  <h4><%= @user.fName%> <%= @user.lName%> <br></h5>
+  		<h5><%= @user.email%></h5>
+	</div>
+
+<div class="pull-right">	
+	<div class="row">
+    <div class="span7">
+      <h3>News Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+</div>  
+<% end %>
