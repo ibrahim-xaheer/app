@@ -10,7 +10,7 @@ class PostsController < ApplicationController
       flash[:success] = "Successfully Posted!"
 	  redirect_to current_user	
     else
-   	  flash[:failure] = "FAILED to Post"
+   	  flash[:error] = "Post Body Cannot be Blank !!!"
       redirect_to current_user	
     end
   end

@@ -1,33 +1,39 @@
 
-<h1>Name : <%= @user.fName%> <%= @user.lName%> <br></h1>
-<br>
-<h3>email :<%= @user.email%></h3>
-<%= debug(params) %>
-<div>
-  <% if current_user?(@user)%>
-      
-      <%= form_for(@new_post) do |f| %>
-  
-      <%= f.text_area :content, rows: "3", placeholder: "What is on your mind..." %>
-      <br>
-      <%= f.submit "Post", class: "btn btn-small btn-primary" %>
-      <% end %>
-  <% end %>      
+
+
+<div class="pull-left span3">
+
+  <h4><%= @user.fName%> <%= @user.lName%> <br></h5>
+  <h5><%= @user.email%></h5>
 </div>
 
-	
 
-<div class="span8">
-    <% if @user.posts.any? %>
-      <h3>Posts (<%= @user.posts.count %>)</h3>
-      <ol class="posts">
-        <%= render @posts %>
-      </ol>
-      <%= will_paginate @posts %>
-    <% end %>
+
+
+
+<div class="pull-right">
+  <div>
+    <% if current_user?(@user)%>
+          <%= form_for(@new_post) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <%= f.text_area :content, rows: "3", class: "span7", placeholder: "What is on your mind..." %>
+          <br>
+          <%= f.submit "Post", class: "btn btn-small btn-primary" %>
+          <% end %>
+    <% end %>      
   </div>
-<div>
-
+  <div>
+    <div class="span7">
+      <% if @user.posts.any? %>
+        <h3>Posts (<%= @user.posts.count %>)</h3>
+          <ol class="posts">
+          <%= render @posts %>
+        </ol>
+        <%= will_paginate @posts %>
+      <% end %>
+    </div>
+  </div>
 </div>
-  
-
+<div class="span10">
+  <%= debug(params) if Rails.env.development? %>
+</div>
