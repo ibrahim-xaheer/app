@@ -10,8 +10,12 @@
 #  updated_at :datetime         not null
 #
 
-require 'spec_helper'
+class Post < ActiveRecord::Base
+  attr_accessible :content
 
-describe Posts do
-  pending "add some examples to (or delete) #{__FILE__}"
+  belongs_to :user
+
+  validates :content, presence: true, length: { maximum: 150 }
+  validates :user_id, presence: true
+  default_scope order: 'posts.created_at DESC'
 end

@@ -1,10 +1,10 @@
 App::Application.routes.draw do
-  
   # match '/the path that is shown', to:'controller#view'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  
+  resources :posts, only: [:create, :destroy]
+    
   root to: 'pages#home'
 
   match '/help' ,    to: 'pages#help'

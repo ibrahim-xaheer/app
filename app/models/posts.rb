@@ -1,3 +1,32 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  content    :string(255)
+#  type       :integer
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+
+
+
+# BAD FILE !!!!!!
+
+
+
+
+
+
 class Posts < ActiveRecord::Base
-  attr_accessible :content, :type, :user_id
+
+  attr_accessible :content
+
+  belongs_to :user
+
+  validates :content, presence: true, length: { maximum: 150 }
+  validates :user_id, presence: true
+  default_scope order: 'posts.created_at DESC'
 end

@@ -10,6 +10,7 @@
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
 #  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
 #
 
 #  == Schema Information
@@ -29,7 +30,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :fName, :lName, :email, :password, :password_confirmation
   has_secure_password
-
+  has_many :posts, dependent: :destroy
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
