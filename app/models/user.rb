@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   def feed
-    Post.where("user_id = ?", id)
+    Post.from_users_friend_by(self)
   end
 
   def friends_added?(other_user)#########################use to show friends All Later

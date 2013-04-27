@@ -1,0 +1,2 @@
+$("#friend_form").html("<%= escape_javascript(render('users/unfriend')) %>")
+$("#followers").html('<%= @user.followers.count %>')

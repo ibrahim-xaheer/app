@@ -18,4 +18,12 @@ class Post < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 150 }
   validates :user_id, presence: true
   default_scope order: 'posts.created_at DESC'
+  
+ def self.from_users_friend_by(user)
+    friend_user_ids = "SELECT friend_id FROM relationships
+                         WHERE adder_id = :user_id"
+    where("user_id IN (#{friend_user_ids}) OR user_id = :user_id", 
+          user_id: user.id)
+  end
+
 end
