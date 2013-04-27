@@ -1,0 +1,27 @@
+<% provide(:title, 'Search Results') %>
+<h1>All users</h1>
+
+<%= will_paginate%>
+
+<ul class="users nav">
+  <% @users.each do |user| %>
+    <li class="span4">
+      <nav>
+        
+        <li><%= link_to image_tag("picsmall.png", alt: "Rails", class: "miniDP") %> <%= link_to "#{user.fName} #{user.lName}", user %>
+          <% if current_user.admin? && !current_user?(user) %>
+         <%= link_to "Delete", user, class: "btn btn-mini btn-danger pull-right", 
+                                  method: :delete,
+                                  data: { confirm: "You sure?" } %>
+        
+          <% end %>
+          </li>    
+        
+      </nav>
+    </li>
+    <br><br>
+  <% end %>
+</ul>
+
+
+<%= will_paginate %>

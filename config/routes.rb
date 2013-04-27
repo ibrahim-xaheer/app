@@ -1,9 +1,19 @@
 App::Application.routes.draw do
   # match '/the path that is shown', to:'controller#view'
 
-  resources :users
+ resources :users do
+    member do
+      get :friends, :adders
+    end
+    
+    collection do
+      get :tigers
+    end
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :posts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
     
   root to: 'pages#home'
 

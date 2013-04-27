@@ -5,9 +5,21 @@
 
   <h4><%= @user.fName%> <%= @user.lName%> <br></h5>
   <h5><%= @user.email%></h5>
+<section>
+    <%= render 'shared/stats' %>
+</section>
+    <% if current_user?(@user)%>
+    <%else%>
+<section>
+    <%= render 'friend_form' if signed_in? %>
+<section>
+    <%end%>
+    
 </div>
 
-
+      
+      
+      
 
 
 
@@ -19,7 +31,7 @@
           <%= f.text_area :content, rows: "3", class: "span7", placeholder: "What is on your mind..." %>
           <br>
           <%= f.submit "Post", class: "btn btn-small btn-primary" %>
-          <% end %>
+          <% end %>          
     <% end %>      
   </div>
   <div>

@@ -16,15 +16,15 @@ It's Free and always will be. <br><br>
 <%= form_for(@user) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
-	<%= f.text_field :fName, placeholder: "First Name", class: "input-small" %>
+	<%= f.text_field :fName, placeholder: "First Name", class: "input-small", required: "required" %>
 &nbsp;&nbsp;
-	<%= f.text_field :lName, placeholder: "Last Name", class: "input-small"%>
+	<%= f.text_field :lName, placeholder: "Last Name", class: "input-small", required: "required" %>
 
-	<%= f.email_field :email, placeholder: "Email", class: "input" %>
+	<%= f.email_field :email, placeholder: "Email", class: "input", required: "required" %>
 
-	<%= f.password_field :password , placeholder: "New Password", class: "input" %>
+	<%= f.password_field :password , placeholder: "New Password", class: "input", required: "required" %>
 
-	<%= f.password_field :password_confirmation, placeholder: "Re-enter Password" %>
+	<%= f.password_field :password_confirmation, placeholder: "Re-enter Password", class: "input", required: "required" %>
 <br>
 	<%= f.submit "SignUp", class: "btn btn-large btn-success" %>
 

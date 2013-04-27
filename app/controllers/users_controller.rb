@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :friends, :adders]
   before_filter :correct_user,   only: [:edit, :update]
   
   def new
@@ -60,6 +60,20 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
+    end
+
+    def friends
+      @title = "Friends"
+      @user = User.find(:param[:id])
+      @users = @user.friend_users.paginate(page: params[:page])
+      render 'show_friends'
+    end
+
+    def adders
+      @title = "Adders"
+      @user = User.find(:param[:id])
+      @users = @user.adders.paginate(page: params[:page])
+      render 'show_friends'
     end
 
 end
