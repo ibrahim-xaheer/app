@@ -25,5 +25,9 @@ class PagesController < ApplicationController
       @feed_items = current_user.feed.paginate(page: params[:page])
     end
   end
+
+  def search
+    @search_string
+  end
   
 end

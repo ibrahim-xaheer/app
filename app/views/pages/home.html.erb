@@ -16,7 +16,7 @@ It's Free and always will be. <br><br>
 <%= form_for(@user) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
-	<%= f.text_field :fName, placeholder: "First Name", class: "input-small", required: "required" %>
+	<%= f.text_field :fName, placeholder: "First Name", class: "input-small", required: "required", id:"name" %>
 &nbsp;&nbsp;
 	<%= f.text_field :lName, placeholder: "Last Name", class: "input-small", required: "required" %>
 

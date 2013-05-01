@@ -3,7 +3,7 @@
 # Table name: relationships
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
+#  adder_id   :integer
 #  friend_id  :integer
 #  accept     :boolean          default(FALSE)
 #  created_at :datetime         not null

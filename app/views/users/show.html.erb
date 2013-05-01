@@ -1,27 +1,15 @@
 
 
-
 <div class="pull-left span3">
-
-  <h4><%= @user.fName%> <%= @user.lName%> <br></h5>
-  <h5><%= @user.email%></h5>
-<section>
-    <%= render 'shared/stats' %>
-</section>
+  <%= render 'shared/user_info'%>
     <% if current_user?(@user)%>
     <%else%>
-<section>
-    <%= render 'friend_form' if signed_in? %>
-<section>
+  <section>
+      <%= render 'friend_form' if signed_in? %>
+  <section>
     <%end%>
     
 </div>
-
-      
-      
-      
-
-
 
 <div class="pull-right">
   <div>

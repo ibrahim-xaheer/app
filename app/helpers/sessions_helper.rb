@@ -1,7 +1,8 @@
 module SessionsHelper
 	
 	def sign_in(user)
-		cookies.permanent[:remember_token] = user.remember_token
+		#cookies.signed[:remember_token] = { :value => user.remember_token, :expires => 1.minute.from_now }
+    cookies.permanent[:remember_token] = user.remember_token #(keeps u signed in)
 		self.current_user = user
 	end
 

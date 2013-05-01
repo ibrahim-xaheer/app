@@ -18,6 +18,10 @@ body
 	text-decoration:none;
 	text-shadow:0 0 0;
 }
+.blueText
+{
+	color:#3b5998;
+}
 .grayText
 {
 	color:#98a9ca;
@@ -78,4 +82,9 @@ input[type="submit"].btn.btn-large
 {
 	text-decoration:none;
 	font-weight:bold;
+}
+.topMargin
+{
+	margin-top:4px;
+	margin-bottom:0px;
 }

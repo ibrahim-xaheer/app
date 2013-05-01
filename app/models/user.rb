@@ -2,15 +2,19 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  fName           :string(255)
-#  lName           :string(255)
-#  email           :string(255)
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string(255)
-#  remember_token  :string(255)
-#  admin           :boolean          default(FALSE)
+#  id               :integer          not null, primary key
+#  fName            :string(255)
+#  lName            :string(255)
+#  email            :string(255)
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  password_digest  :string(255)
+#  remember_token   :string(255)
+#  admin            :boolean          default(FALSE)
+#  pic_file_name    :string(255)
+#  pic_content_type :string(255)
+#  pic_file_size    :integer
+#  pic_updated_at   :datetime
 #
 
 #  == Schema Information
@@ -28,7 +32,7 @@
 
 class User < ActiveRecord::Base
 
-  attr_accessible :fName, :lName, :email, :password, :password_confirmation
+  attr_accessible :fName, :lName, :email, :password, :password_confirmation, :pic
   has_secure_password
 
   has_many :posts, dependent: :destroy
@@ -50,6 +54,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+  has_attached_file :pic, :styles =>{ :large => "50x50>", :medium => "40x40>", :thumb => "25x25>" }
 
   def feed
     Post.from_users_friend_by(self)

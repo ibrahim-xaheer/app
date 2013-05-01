@@ -1,6 +1,6 @@
 
 <h1>Sign Upssss</h1>
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => { :multipart => true } do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 <div class="field">
 	<%= f.label :fName, "First Name" %><%= f.text_field :fName, class: "input-small", required: "required"%>
@@ -17,6 +17,10 @@
 <div class="field">
 	<%= f.label :password_confirmation, "Confirm Password" %><%= f.password_field :password_confirmation, class: "input", required: "required" %>
 </div>
+<div class="field">
+	<%= f.label :pic, "Display Pic" %><%= f.file_field :pic, class: "input" %>
+</div>
+
 <div class="Action">
 	<%= f.submit "SignUp", class: "btn btn-large btn-primary" %>
 </div>

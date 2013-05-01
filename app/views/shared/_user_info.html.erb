@@ -1,0 +1,15 @@
+<div class="pull-left">
+    <%if @user.pic_file_name? %>
+        <%= image_tag @user.pic.url(:large)%>
+        <%else%>
+          <%=image_tag("pic_medium_m.png", alt: "Rails")%>
+        <%end%>
+  </div>
+  <div class="span2 noMargin blueText">
+    <b><%= @user.fName%> <%= @user.lName%> <br></b>
+    <%= @user.email%><br>
+    <% if current_user?(@user)%>
+    <%= link_to "Edit Profile", edit_user_path(current_user) , class: "blueText"%>
+    <%end%>
+        <%= render 'shared/stats' %>
+    </div>
