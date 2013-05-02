@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   end
 
   def show
+
   	@user =User.find(params[:id])
+    @title = "#{@user.fName} #{@user.lName}"
     @posts = @user.posts.paginate(page: params[:page])
     @new_post = current_user.posts.build if signed_in?
   end
@@ -49,11 +51,25 @@ class UsersController < ApplicationController
       @users = User.paginate(page: params[:page])
   end
 
+  def search
+     @users = User.where("fName LIKE '%#{params[:search][:s_string]}%' OR lName LIKE '%#{params[:search][:s_string]}%'") .paginate(page: params[:page])
+     @title = params[:search][:s_string]
+     render 'results'   
+     #
+  end
+
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User DELETED !!!"
     redirect_to users_url
   end
+
+  def friends
+      @title = "Friends"
+      @user = User.find(params[:id])
+      @users = @user.friend_users.paginate(page: params[:page])
+      render 'friends'
+    end
 
   private
 
@@ -62,16 +78,11 @@ class UsersController < ApplicationController
       redirect_to(root_path) unless current_user?(@user)
     end
 
-    def friends
-      @title = "Friends"
-      @user = User.find(:param[:id])
-      @users = @user.friend_users.paginate(page: params[:page])
-      render 'show_friends'
-    end
+    
 
     def adders
       @title = "Adders"
-      @user = User.find(:param[:id])
+      @user = User.find(:params[:id])
       @users = @user.adders.paginate(page: params[:page])
       render 'show_friends'
     end

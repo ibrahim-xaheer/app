@@ -20,6 +20,9 @@
 
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation , value: params[:password_confirmation]%>
+
+      <%= f.label :pic, "Display Pic" %>
+      <%= f.file_field :pic, class: "input" %>
       <br>
       <%= f.submit "Save Changes", class: "btn btn-large btn-success" %>
     <% end %>

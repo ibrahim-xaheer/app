@@ -2,13 +2,13 @@
   <div class="navbar-inner darkBlueBG">
     <div class="container">
 <% if signed_in? %>  
-      <div class="pull-left">
-        <%= link_to logoS, feed_path %>
-        &nbsp;
-        <%= form_for @search_string do |s|%>
-        <%= s.text_field :fName, class: "input", required: "required", placeholder: "Search..."%>
-        <button type="submit" class="search-margin topMargin btn btn-min btn-info">Search</button>
-        <%end%>
+      <div class="pull-left span6">
+        <ul class="nav pull-left grayText">
+          <li><%= link_to logoS, feed_path %></li>
+          <li class="search-margin"><%= form_for(:search, url: search_path) do |s|%><%= s.text_field :s_string, class: "input-medium", required: "required", placeholder: "Search..."%></li>
+          <li><%= s.submit "Search", class: "btn btn-medium btn-primary " %></li>
+        </ul>
+          <% end %>
       </div>
       <nav>
         <ul class="nav pull-right grayText username">                  
@@ -44,7 +44,7 @@
               <td><%= f.submit "Log In", class: "btn btn-small btn-primary" %></td>
             </tr>
             <tr>
-              <td class="grayText smallText"><input type="checkbox" class="noMargin"/>&nbsp;Keep me logged in</td>
+              <td class="grayText smallText"><%= f.check_box :remember %>&nbsp;Keep me logged in</td>
               <td class="grayText smallText">Forgot Password?</td>
             </tr>
             <% end %>

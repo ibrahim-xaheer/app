@@ -19,7 +19,7 @@ def make_users
      fName  = Faker::Name.first_name
      lName  = Faker::Name.last_name
      email = "#{fName}#{lName}#{n+3}@google.pk"
-    password  = "password"
+    password  = "123456"
 	if User.create!(fName: fName,
                  lName: lName,      
                  email:    email,

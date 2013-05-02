@@ -26,8 +26,8 @@ class PagesController < ApplicationController
     end
   end
 
-  def search
-    @search_string
+  def results
+   @users = User.paginate(page: params[:page])
   end
   
 end
