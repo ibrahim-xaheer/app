@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   		#Handle a successfull sign up
       #redirect_to user_path(@user) # takes u to the user home page\
       flash[:success] = "Welcome to Facebook"
-      sign_in(@user)
+      sign_in(@user,1)
       redirect_to @user
   	else
       @title = "Sign Up | ERROR "
@@ -67,7 +67,8 @@ class UsersController < ApplicationController
   def friends
       @title = "Friends"
       @user = User.find(params[:id])
-      @users = @user.friend_users.paginate(page: params[:page])
+      @users = @user.friend_users
+      @users = @users + @user.adders
       render 'friends'
     end
 

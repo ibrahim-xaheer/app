@@ -3,26 +3,24 @@
     <div class="container">
 <% if signed_in? %>  
       <div class="pull-left span6">
-        <ul class="nav pull-left grayText">
-          <li><%= link_to logoS, feed_path %></li>
-          <li class="search-margin"><%= form_for(:search, url: search_path) do |s|%><%= s.text_field :s_string, class: "input-medium", required: "required", placeholder: "Search..."%></li>
-          <li><%= s.submit "Search", class: "btn btn-medium btn-primary " %></li>
+        <ul class="nav pull-left grayText">                  
+          <li><%= link_to logoS, feed_path %></li><li class="topMargin"><%= form_for(:search, url: search_path) do |s|%><%= s.text_field :s_string, required: "required", placeholder: "Search..."%></li>
+          <li class="topMargin"><%= s.submit "Search" , class: "btn btn-medium btn-primary"%></li>
         </ul>
           <% end %>
       </div>
       <nav>
         <ul class="nav pull-right grayText username">                  
-          <li>
-            <div class="topMargin grayText span2 ">
+          <li class="hMargin noPadding">
               <% if current_user.pic? %>
-                <%= image_tag current_user.pic.url(:thumb) %>
+                <%= link_to (image_tag current_user.pic.url(:thumb)), user_path(current_user)%>
               <%else%>
-                <%=image_tag("pic_thumb_m.png", alt: "Rails")%>
+                <%= link_to (image_tag("pic_thumb_m.png", alt: "Rails")), user_path(current_user)%></li>
               <%end%>
-              <%= link_to "#{current_user.fName} #{current_user.lName}", user_path(current_user) %>
-            </div>
+              <li class="hMargin noPadding"><%= link_to "#{current_user.fName} #{current_user.lName}", user_path(current_user) %>
+            
           </li>
-          <li><%= link_to "All Users", users_path %></li>
+          
           <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
           <li><%= link_to "Sign out", signout_path, method: "delete" %></li>            
         </ul>        
@@ -44,7 +42,7 @@
               <td><%= f.submit "Log In", class: "btn btn-small btn-primary" %></td>
             </tr>
             <tr>
-              <td class="grayText smallText"><%= f.check_box :remember %>&nbsp;Keep me logged in</td>
+              <td class="grayText smallText"><%= f.check_box :remember_me %>&nbsp;Keep me logged in</td>
               <td class="grayText smallText">Forgot Password?</td>
             </tr>
             <% end %>

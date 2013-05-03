@@ -9,3 +9,6 @@ class ApplicationController < ActionController::Base
   
   
 end
+#<div class="span10">
+#  <%= debug(params) if Rails.env.development? %>
+#</div>

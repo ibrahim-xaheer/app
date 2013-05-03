@@ -1,7 +1,7 @@
 <% provide(:title, 'Friends') %>
 <h1>Friends</h1>
 
-<%= will_paginate%>
+
 <ul class="users nav">
   <% @users.each do |user| %>
     <li class="span4">
@@ -25,6 +25,4 @@
     <br><br>
   <% end %>
 </ul>
-<%= will_paginate%>
 
-<%= debug(params) if Rails.env.development? %>
