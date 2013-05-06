@@ -26,6 +26,7 @@ App::Application.routes.draw do
   match '/feed', to: 'pages#feed'
   match '/search', to: 'users#search'
   match '/new', to:'users#new'
+  match '/trial', to:'pages#DP'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,11 @@
+<span class="content">
+<%= form_for(@new_post) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <%= f.text_area :content, rows: "3", class: "spanPost pull-right", placeholder: "What is on your mind..." %>
+          <br>
+        <div class="spanPost">
+          Picture <%= f.file_field :wall %>
+          <%= f.submit "Post", class: "btn btn-small btn-primary pull-right" %>
+      </div>
+<% end %>          
+</span>
