@@ -32,7 +32,7 @@
 
 class User < ActiveRecord::Base
 
-  attr_accessible :fName, :lName, :email, :password, :password_confirmation, :pic
+  attr_accessible :fName, :lName, :email, :password, :password_confirmation, :pic, :wall, :dob, :gender
   has_secure_password
 
   has_many :posts, dependent: :destroy
@@ -54,7 +54,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
-  has_attached_file :pic, :styles =>{ :large => "50x50>", :medium => "40x40>", :thumb => "25x25>" }
+  has_attached_file :pic, :styles =>{ :wall => "168x168>", :large => "50x50>", :medium => "40x40>", :thumb => "25x25>" }
+  has_attached_file :wall, :styles =>{ :large => "940x316>" }
 
   def feed
     Post.from_users_friend_by(self)

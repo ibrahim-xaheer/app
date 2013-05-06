@@ -1,17 +1,38 @@
 
-
-<div class="pull-left span3">
-  <%= render 'shared/user_info'%>
-    <% if current_user?(@user)%>
+  <%if @user.wall_file_name? %>
+  <div class="coverPhoto">
+    <%= link_to (image_tag @user.wall.url(:large)), @user.wall.url %>    
+</div>
+<%else%>
+<div class="noCover">
+  <%= link_to (image_tag @user.pic.url(:wall)), @user.pic.url %>
+</div>
+<%end%>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <nav>
+        <ul class="nav blueText">
+          <li><% if current_user?(@user)%><%= link_to "Edit Profile", edit_user_path(current_user) , class: "blueText" %><%end%></li>
+          <li><a href="<%= friends_user_path(@user) %>" class="blueText">Friends(<%= @user.friend_users.count+@user.adders.count %>)<br>
+  </a> </li>
+          <li><%= link_to "News", feed_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>     
+<div class="pull-left span4 userInfo">
+   <% if current_user?(@user)%>
     <%else%>
   <section>
       <%= render 'friend_form' if signed_in? %>
   <section>
     <%end%>
-    
+  <%= render 'shared/user_info'%>    
 </div>
 
-<div class="pull-right">
+<div class="span8">
   <div>
     <% if current_user?(@user)%>
           <%= form_for(@new_post) do |f| %>

@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :friends, :adders]
+  before_filter :signed_in_user, only: [:edit, :update, :show, :search]
   before_filter :correct_user,   only: [:edit, :update]
   
   def new
-  	@title = "Sign Up"
-  	@user =   User.new
+    @title = "Sign Up"
+    @user =   User.new
   end
 
   def show
 
-  	@user =User.find(params[:id])
+    @user =User.find(params[:id])
     @title = "#{@user.fName} #{@user.lName}"
     @posts = @user.posts.paginate(page: params[:page])
     @new_post = current_user.posts.build if signed_in?
@@ -17,19 +17,19 @@ class UsersController < ApplicationController
 
   def create
 
-#  	raise params[:user].inspect
-  	@user = User.new(params[:user])
+#   raise params[:user].inspect
+    @user = User.new(params[:user])
 
-  	if @user.save
-  		#Handle a successfull sign up
+    if @user.save
+      #Handle a successfull sign up
       #redirect_to user_path(@user) # takes u to the user home page\
       flash[:success] = "Welcome to Facebook"
       sign_in(@user,1)
       redirect_to @user
-  	else
+    else
       @title = "Sign Up | ERROR "
-  		render 'new'
-  	end
+      render 'new'
+    end
   end
 
   def edit
@@ -38,9 +38,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    ##########
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
-      sign_in @user
+      sign_in @user,1
       redirect_to @user
     else
       render 'edit'
@@ -52,10 +53,10 @@ class UsersController < ApplicationController
   end
 
   def search
-     @users = User.where("fName LIKE '%#{params[:search][:s_string]}%' OR lName LIKE '%#{params[:search][:s_string]}%'") .paginate(page: params[:page])
+    s="%#{params[:search][:s_string]}%"
+     @users = User.where("fName LIKE ? OR lName LIKE ?",s ,s).paginate(page: params[:page])##################################
      @title = params[:search][:s_string]
      render 'results'   
-     #
   end
 
   def destroy
@@ -77,9 +78,7 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
-    end
-
-    
+    end   
 
     def adders
       @title = "Adders"

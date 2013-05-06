@@ -3,8 +3,9 @@
 <head>
 	<title><%= title%></title>
  <%= render 'layouts/stylesheets' %>
+ 
 </head>
-<body>
+<body class= "bodyBG">
 	<div class="container">
 	<%= render 'layouts/header' %>
 	<br>
@@ -12,7 +13,6 @@
 	<br>
 	<br>
 	<br>
-		
 			<% flash.each do |key, value|%>
 			<div class="alert alert-<%= key %>">
 				<%= value %>

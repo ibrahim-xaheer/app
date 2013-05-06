@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501184623) do
+ActiveRecord::Schema.define(:version => 20130503173102) do
 
   create_table "posts", :force => true do |t|
     t.string   "content"
@@ -39,15 +39,21 @@ ActiveRecord::Schema.define(:version => 20130501184623) do
     t.string   "fName"
     t.string   "lName"
     t.string   "email"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",            :default => false
+    t.boolean  "admin",                            :default => false
     t.string   "pic_file_name"
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.string   "gender",            :limit => nil
+    t.date     "dob"
+    t.string   "wall_file_name"
+    t.string   "wall_content_type"
+    t.integer  "wall_file_size"
+    t.datetime "wall_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -8,9 +8,9 @@
 {
 	background:#fff;
 }
-body
+.bodyBG
 {
-	background:#edf0f5;
+	background-color:#edf0f5;
 }
 .whiteText
 {
@@ -34,6 +34,12 @@ body
 	text-decoration:none;
 	text-shadow:0 0 0 white;	
 }
+
+.email1
+{
+	width: 375px;
+}
+
 .clear
 {
 	clear:both;
@@ -42,12 +48,14 @@ body
 {
 	font-size:11px;
 	font-family:'lucida grande',tahoma,verdana,arial,sans-serif;
-	line-height:1.28;
+	line-height:1.32;	
+
 }
 .input-medium
 {
-	width:142px;
+	width: 172px;
 }
+
 .noMargin
 {
 	margin-top:0px;
@@ -67,6 +75,7 @@ input[type="submit"].btn.btn-large
 {
 	width:192px;
 }
+
 .miniDP
 {
 	width:25px;
@@ -96,4 +105,108 @@ input[type="submit"].btn.btn-large
 .noPadding
 {
 	padding:0 0 0;
+}
+.coverPhoto
+{
+	//background-image: <%= image_tag current_user.pic.url(:thumb)%>
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e6e6e6), to(#a4a4a4));
+	width:940px;
+	height:316px;
+}
+.wallDP
+{
+	float:left;
+	float:top;
+}
+.userInfo
+{
+	margin:0 0 0;
+}
+.noCover
+{
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e6e6e6), to(#a4a4a4));
+	width:940px;
+	height:160px;
+}
+.wallNav
+{
+	line-height:40px;
+	height:50px;
+	float:center;
+	text-align:center;
+}
+.a:hover
+{
+	background-color:red;
+}
+.container1
+{
+	height:55px;
+}
+.fontSize
+{
+font-family: Freight Sans Bold;
+font-size: 18px;
+line-height: 22px;
+font-weight: normal !important;
+text-rendering: optimizelegibility;
+
+}
+.firstLine
+{
+
+line-height: 36px;
+font-family: Freight Sans Bold;
+font-weight: normal !important;
+text-rendering: optimizelegibility;
+}
+.divSize
+{
+padding-top: 42px;
+padding-right: 0px;
+padding-bottom: 24px;
+font-size: 28px;
+width: 480px;
+}
+
+.picDiv
+{
+	width: 520px;
+}
+.Div
+{
+	width: 550px;
+}
+.birthday_label 
+{
+color: #333;
+font-size: 18px;
+font-weight: normal;
+}
+.MaleFont
+{
+
+font-size: 18px;
+color: black;
+
+}
+input[type= "radio"]
+{
+	margin: 0 0 0;
+}
+
+.random
+{
+	font-size: 10px;
+}
+
+.head
+{
+	padding-left: 2px;
+	font-size: 11px;
+	line-height: 1.28;
+}
+.headerlength
+{
+	min-height: 80px;
 }

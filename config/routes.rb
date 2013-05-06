@@ -25,6 +25,7 @@ App::Application.routes.draw do
   match '/signout',  to: 'sessions#destroy'
   match '/feed', to: 'pages#feed'
   match '/search', to: 'users#search'
+  match '/new', to:'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

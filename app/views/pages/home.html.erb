@@ -1,32 +1,74 @@
 
 
-<div class="pull-left span5">
-<h3>Connect with friends and the world around you on Facebook.</b3>
+<div class="pull-left divSize firstLine">
+<h3>Connect with friends and the world around you on Facebook.</h3>
 <br><br>
-<img src="https://fbcdn-dragon-a.akamaihd.net/cfs-ak-prn1/676405/66/276449379149296_1535348985.png"/>
-<br><br>
-<img src="https://fbcdn-dragon-a.akamaihd.net/cfs-ak-prn1/676655/83/276449379149296_1538611903.png"/>
-<br><br>
-<img src="https://fbcdn-dragon-a.akamaihd.net/cfs-ak-ash3/676550/669/276449379149296_367648155.png"/>
+<div class= "fontSize">
+  <%= image_tag("1.png")%>
+  &nbsp;&nbsp;
+  <b> See photos and updates</b> from friends in News Feed.
+
+<br><br><br>
+<%= image_tag("2.png")%>
+&nbsp;&nbsp;
+<b>Share what's new</b> in your life on your Timeline.
+<br><br><br>
+
+<%= image_tag("3.png")%>
+
+<b>Find more</b> of what you're looking for with Graph Search.
+
+</div>
 </div>
 
-<div class="pull-right span5">
+
+
+<div class="pull-right ">
 <h1>Sign Up</h1>
 It's Free and always will be. <br><br>
 <%= form_for(@user) do |f| %>
+
 <%= render 'shared/error_messages', object: f.object %>
 
-	<%= f.text_field :fName, placeholder: "First Name", class: "input-small", required: "required", id:"name" %>
+	<%= f.text_field :fName, placeholder: "First Name", class: "input-medium", required: "required", id:"name" %>
 &nbsp;&nbsp;
-	<%= f.text_field :lName, placeholder: "Last Name", class: "input-small", required: "required" %>
 
-	<%= f.email_field :email, placeholder: "Email", class: "input", required: "required" %>
-
-	<%= f.password_field :password , placeholder: "New Password", class: "input", required: "required" %>
-
-	<%= f.password_field :password_confirmation, placeholder: "Re-enter Password", class: "input", required: "required" %>
+	<%= f.text_field :lName, placeholder: "Last Name", class: "input-medium", required: "required" %>
+	<br><br>
+	<%= f.email_field :email, placeholder: "Email", class: "input email1", required: "required" %>
+	<br><br>
+	<%= f.password_field :password, placeholder: "New Password", class: "input email1", required: "required" %>
+	<br><br>
+	<%= f.password_field :password_confirmation, placeholder: "Re-enter Password", class: "input email1", required: "required" %>
 <br>
+<div class= "birthday_label ">
+<b> Birthday </b>
+
+</div>
+<br>
+
+<div class= "random" >
+<input type="date" name="user[dob]" required="required"> 
+<a  href="http://news.railstutorial.org/">Why do I need to provide my birthday?</a>
+<br><br><br>
+</div>
+
+<div class="MaleFont">
+ <%= radio_button("user", "gender", "M", required: "required" ) %>
+  <b> Male </b>
+ <%= radio_button("user", "gender", "F", required: "required") %>
+  <b> Female </b>
+  <br><br>
+
+</div>
+ 
+<br>
+
+By clicking <a href="http://news.railstutorial.org/">Sign Up</a>, you agree to our <a href="http://news.railstutorial.org/">Terms</a> <br>Terms and that you have </br>read our Data Use <a href="http://news.railstutorial.org/">Policy</a>, including our <a href="http://news.railstutorial.org/">Cookie</a> Use.
+<br><br><br>
 	<%= f.submit "SignUp", class: "btn btn-large btn-success" %>
 
+<br><br><br>
+<b><a href="http://news.railstutorial.org/">Create a Page</a> for a celebrity, band or business.</b>
 <% end %>
 </div>

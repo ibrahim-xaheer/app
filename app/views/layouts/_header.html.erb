@@ -1,5 +1,5 @@
 <header class="navbar navbar-fixed-top">
-  <div class="navbar-inner darkBlueBG">
+  <div class="navbar-inner darkBlueBG headerlength">
     <div class="container">
 <% if signed_in? %>  
       <div class="pull-left span6">
@@ -33,7 +33,7 @@
           <table> 
             <%= form_for(:session, url: sessions_path) do |f| %>
             <tr>
-              <td class="whiteText"><%= f.label :email,"Email or Phone", class: "smallText" %></td>
+              <td class="whiteText"><%= f.label :email,"Email or Phone", class: "smallText head" %></td>
               <td class="whiteText"><%= f.label :password,"Password", class: "smallText" %></td>
             </tr>
             <tr>
