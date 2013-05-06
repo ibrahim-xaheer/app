@@ -1,5 +1,10 @@
 <li>
   <span class="content"><%= post.content %></span>
+  <br>
+  <%if post.wall_file_name? ##############################################################%>
+	<%= link_to image_tag(post.wall.url), post.wall.url %>
+<%end%>
+
   <span class="timestamp">
    <%= time_ago_in_words(post.created_at) %> ago.
   </span>

@@ -1,11 +1,11 @@
  <div class="wallDP">
  <%if @user.pic_file_name? %>
-        <%= link_to (image_tag @user.pic.url(:wall)), @user.pic.url %>
+        <%= link_to (image_tag @user.pic.url(:wall), class: "img-polaroid"), @user.pic.url %>
         <%else%>
-          <%=image_tag("pic_medium_m.png", alt: "Rails")%>
+          <%=image_tag("pic_medium_m.png", alt: "No DP", class: "img-polaroid")%>
         <%end%>
  </div>
   <div class="pull-left blueText">
     <b><%= link_to "#{current_user.fName} #{current_user.lName}", user_path(@user) %><br></b>
-    <%= @user.email%><br>
+    <%= @user.email%><br>sadasd
  </div>

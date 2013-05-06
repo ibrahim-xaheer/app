@@ -11,14 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130503173102) do
+ActiveRecord::Schema.define(:version => 20130506173051) do
 
   create_table "posts", :force => true do |t|
     t.string   "content"
     t.integer  "type"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "wall_file_name"
+    t.string   "wall_content_type"
+    t.integer  "wall_file_size"
+    t.datetime "wall_updated_at"
   end
 
   add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"

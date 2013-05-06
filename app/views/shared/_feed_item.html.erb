@@ -7,6 +7,10 @@
           <%end%>
   
   <span class="content"><p><%= feed_item.content %></p></span>
+<%if feed_item.wall_file_name? ##############################################################%>
+	<%= link_to image_tag(feed_item.wall.url), feed_item.wall.url %>
+<%end%>
+
   <span class="timestamp">
     <%= time_ago_in_words(feed_item.created_at) %> ago.
   </span>
