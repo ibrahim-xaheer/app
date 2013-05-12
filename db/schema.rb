@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130506173051) do
+ActiveRecord::Schema.define(:version => 20130506230126) do
 
   create_table "posts", :force => true do |t|
     t.string   "content"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(:version => 20130506173051) do
     t.string   "wall_content_type"
     t.integer  "wall_file_size"
     t.datetime "wall_updated_at"
+    t.string   "vid_file_name"
+    t.string   "vid_content_type"
+    t.integer  "vid_file_size"
+    t.datetime "vid_updated_at"
   end
 
   add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"
@@ -43,16 +47,16 @@ ActiveRecord::Schema.define(:version => 20130506173051) do
     t.string   "fName"
     t.string   "lName"
     t.string   "email"
-    t.datetime "created_at",                                          :null => false
-    t.datetime "updated_at",                                          :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",                            :default => false
+    t.boolean  "admin",             :default => false
     t.string   "pic_file_name"
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
-    t.string   "gender",            :limit => nil
+    t.string   "gender"
     t.date     "dob"
     t.string   "wall_file_name"
     t.string   "wall_content_type"
@@ -62,5 +66,23 @@ ActiveRecord::Schema.define(:version => 20130506173051) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.string   "panda_video_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "vids", :force => true do |t|
+    t.string   "content_type"
+    t.integer  "size"
+    t.string   "filename"
+    t.string   "title"
+    t.string   "description"
+    t.string   "state"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
 end

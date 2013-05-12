@@ -12,19 +12,20 @@ def make_users
                          lName: "User",
                          email: "admin@frakebook.com",
                          password: "administrator",
-                        password_confirmation: "administrator")
-   admin.toggle!(:admin)
+                       password_confirmation: "administrator")
+  admin.toggle!(:admin)
 
   66.times do |n|
      fName  = Faker::Name.first_name
      lName  = Faker::Name.last_name
-     email = "#{fName}#{lName}#{n+3}@google.pk"
+     email = "#{fName}#{lName}#{n+3}@lhr.nu.edu.pk"
     password  = "123456"
 	if User.create!(fName: fName,
                  lName: lName,      
                  email:    email,
                  password: password,
-                 password_confirmation: password)
+                 password_confirmation: password,
+                 gender: "M")
 	else
 	end
   end

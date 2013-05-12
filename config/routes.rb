@@ -12,9 +12,8 @@ App::Application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :posts, only: [:create, :destroy]
+  resources :posts
   resources :relationships, only: [:create, :destroy]
-    
   root to: 'pages#home'
 
   match '/help' ,    to: 'pages#help'
@@ -27,6 +26,7 @@ App::Application.routes.draw do
   match '/search', to: 'users#search'
   match '/new', to:'users#new'
   match '/trial', to:'pages#DP'
+  match '/all', to: 'users#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

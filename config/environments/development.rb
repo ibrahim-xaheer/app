@@ -34,5 +34,5 @@ App::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-  Paperclip.options[:command_path] = "/c/Program Files/ImageMagick-6.8.5-Q16/convert"
+  Paperclip.options[:command_path] = "/c/Program Files/ImageMagick-6.8.5-Q16/"
 end

@@ -12,6 +12,10 @@
 #  wall_content_type :string(255)
 #  wall_file_size    :integer
 #  wall_updated_at   :datetime
+#  vid_file_name     :string(255)
+#  vid_content_type  :string(255)
+#  vid_file_size     :integer
+#  vid_updated_at    :datetime
 #
 
 require 'spec_helper'

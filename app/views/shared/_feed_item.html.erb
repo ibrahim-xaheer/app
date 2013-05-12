@@ -10,6 +10,10 @@
 <%if feed_item.wall_file_name? ##############################################################%>
 	<%= link_to image_tag(feed_item.wall.url), feed_item.wall.url %>
 <%end%>
+<%if feed_item.vid_file_name? ##############################################################%>
+    <%= jwplayer_assets %>
+    <%= jwplayer({ id: feed_item.vid_file_name, flashplayer:"/assets/jwplayer.flash.swf", file: feed_item.vid.url(:medium), height: 342, image: feed_item.vid.url(:thumb), width: 608}) %>
+<%end%>
 <br>
   <span class="timestamp">
     <%= time_ago_in_words(feed_item.created_at) %> ago.

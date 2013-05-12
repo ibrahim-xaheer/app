@@ -12,7 +12,11 @@
           <%if user.pic_file_name? %>
           <%= link_to image_tag(user.pic.url(:thumb), alt: "Rails", class: "miniDP") %> <%= link_to "#{user.fName} #{user.lName}", user %>
           <%else%>
-                <%= link_to image_tag("picsmall.png", alt: "Rails", class: "miniDP") %> <%= link_to "#{user.fName} #{user.lName}", user %>
+              <%if user.gender != "M" %> 
+                <%= link_to (image_tag("pic_thumb_m.png", alt: "Rails")), user_path(user)%><%= link_to "#{user.fName} #{user.lName}", user %>
+            <% else %>
+              <%= link_to (image_tag("pic_thumb_f.png", alt: "Rails")), user_path(user) %><%= link_to "#{user.fName} #{user.lName}", user %>
+            <% end %>
           <%end%>
           <% if current_user.admin? && !current_user?(user) %>
          <%= link_to "Delete", user, class: "btn btn-mini btn-danger pull-right", 

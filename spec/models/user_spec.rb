@@ -15,7 +15,7 @@
 #  pic_content_type  :string(255)
 #  pic_file_size     :integer
 #  pic_updated_at    :datetime
-#  gender            :string
+#  gender            :string(255)
 #  dob               :date
 #  wall_file_name    :string(255)
 #  wall_content_type :string(255)

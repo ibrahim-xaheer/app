@@ -15,7 +15,12 @@
               <% if current_user.pic? %>
                 <%= link_to (image_tag current_user.pic.url(:thumb)), user_path(current_user)%>
               <%else%>
-                <%= link_to (image_tag("pic_thumb_m.png", alt: "Rails")), user_path(current_user)%></li>
+
+                <%if current_user.gender != "M" %> 
+                  <%= link_to (image_tag("pic_thumb_m.png", alt: "Rails")), user_path(current_user)%>
+                <% else %>
+                  <%= link_to (image_tag("pic_thumb_f.png", alt: "Rails")), user_path(current_user) %>
+                <% end %>
               <%end%>
               <li class="hMargin noPadding"><%= link_to "#{current_user.fName} #{current_user.lName}", user_path(current_user) %>
             

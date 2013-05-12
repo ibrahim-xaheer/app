@@ -7,8 +7,10 @@ gem 'faker', '1.0.1'
 gem 'jquery-rails', '2.0.2'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
+gem 'delayed_job_active_record'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-gem 'panda', '~1.6.0'
+gem 'paperclip-ffmpeg'
+gem 'jwplayer-rails'
 
 
 group :development, :test do
